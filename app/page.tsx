@@ -1,11 +1,15 @@
 import "./../app/app.css";
-import ToDo from './components/ToDo'
+import ToDo from "./components/ToDo";
+import LocationFinderServer from './components/LocationInfoServer'
+import  LocationFinderClient  from './components/LocationFinderClient'
 
 export default function App() {
 
   return (
-    <>
-      <ToDo></ToDo>
-    </>
+    <main>
+      <LocationFinderServer />
+      <LocationFinderClient /> 
+      <ToDo/>
+    </main>
   );
 }
