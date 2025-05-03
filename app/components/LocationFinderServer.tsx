@@ -8,6 +8,7 @@ export default async function LocationFinderServer() {
     return (
         <>
             <h1>Hello from {locationInfo.City}</h1> 
+            <h2>The current temperature is: </h2>
         </>
     )
 } 

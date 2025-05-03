@@ -1,6 +1,7 @@
+// Page.tsx
 import "./../app/app.css";
 import ToDo from "./components/ToDo";
-import LocationFinderServer from './components/LocationInfoServer'
+import LocationFinderServer from './components/LocationFinderServer'
 import  LocationFinderClient  from './components/LocationFinderClient'
 
 export default function App() {
@@ -9,7 +10,7 @@ export default function App() {
     <main>
       <LocationFinderServer />
       <LocationFinderClient /> 
-      <ToDo/>
+      {/* <ToDo/> */}
     </main>
   );
 }

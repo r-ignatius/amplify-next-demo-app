@@ -1,24 +1,55 @@
 'use client';
-
 import { useState, useEffect } from "react"
 
 export default function LocationFinderClient() {
-    const  [ locationInfo, setLocationInfo  ] = useState({City: ''});
+    const  [ locationData, setLocationData  ] = useState({
+        City: '',
+        Latitude: '',
+        Longitude: ''
+    });
+    const [ currentTemp, setCurrentTemp ] = useState(0);
 
-    const getLocationInfo = async () => { 
-        const response = await fetch('https://apip.cc/json');
-        const locationData = await response.json();
-        console.log(locationData);
-        setLocationInfo(locationData);
-    }
+    const getWeather = async () => { 
+        try {
+            const locationResponse = await fetch('https://apip.cc/json');
+            const location = await locationResponse.json();
+            console.log(location);
+          
+            setLocationData({
+                City: location.City,
+                Latitude: location.Latitude,
+                Longitude: location.Longitude
+            });
+          
+            const weatherUrl = `http://www.7timer.info/bin/api.pl?`
+                + `lon=${location.Longitude}`
+                + `&lat=${location.Latitude}`
+                + `&product=civil`
+                + `&output=json`;
+
+            const weatherResponse = await fetch(weatherUrl);
+            const weatherData = await weatherResponse.json();
+            console.log(weatherData);
+
+            setCurrentTemp(((weatherData.dataseries[0].temp2m)* (9/5)) + 32);
+
+            const fahrenheitTemp = (temperature * (9/5)) + 32;
+
+        } catch (error) {
+            console.error('Error: ', error)
+        }
+
+    };
 
     useEffect(() => {
-        getLocationInfo();
+        getWeather();
     }, [])
-    
+
+ 
     return (
         <>
-            <h1>Hello from {locationInfo.City}</h1> 
+            <h1>Hello from {locationData.City}</h1>
+            <h2>The current temperature is {currentTemp}°F </h2>
         </>
     )
 }
