@@ -10,7 +10,7 @@ export default function App() {
     <main>
       <LocationFinderServer />
       <LocationFinderClient /> 
-      {/* <ToDo/> */}
+      <ToDo/>
     </main>
   );
 }

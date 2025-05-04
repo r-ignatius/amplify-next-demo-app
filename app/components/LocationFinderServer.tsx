@@ -14,7 +14,6 @@ export default async function LocationFinderServer() {
     }
 
     console.log(location)
-    console.log('Is this even running?')
 
     return (
         <>
