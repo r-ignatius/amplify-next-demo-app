@@ -14,7 +14,7 @@ export default function GetWeather({location}) {
             const currentTempUrl = `&product=civil&output=json`;
             const highLowTempUrl = `&product=civillight&output=json`;
 
-            const weatherUrl = `http://www.7timer.info/bin/api.pl?`
+            const weatherUrl = `https://www.7timer.info/bin/api.pl?`
                 + `lon=${location.Longitude}`
                 + `&lat=${location.Latitude}`
 
