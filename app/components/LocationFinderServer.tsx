@@ -1,3 +1,5 @@
+import GetWeather from "./GetWeather";
+
 export default async function LocationFinderServer() {
 
     const response = await fetch('https://apip.cc/json');
@@ -5,10 +7,18 @@ export default async function LocationFinderServer() {
     console.log(locationData);
     const locationInfo = locationData;
 
+    const location = {
+        City: locationInfo.City,
+        Latitude: locationInfo.Lattitude,
+        Longitude: locationInfo.Longitude
+    }
+
+    console.log('Is this even running?')
+
     return (
         <>
             <h1>Hello from {locationInfo.City}</h1> 
-            <h2>The current temperature is: </h2>
+            <GetWeather location={location} /> 
         </>
     )
 } 
