@@ -13,6 +13,7 @@ export default async function LocationFinderServer() {
         Longitude: locationInfo.Longitude
     }
 
+    console.log(location)
     console.log('Is this even running?')
 
     return (
