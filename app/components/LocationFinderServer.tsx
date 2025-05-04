@@ -9,7 +9,7 @@ export default async function LocationFinderServer() {
 
     const location = {
         City: locationInfo.City,
-        Latitude: locationInfo.Lattitude,
+        Latitude: locationInfo.Latitude,
         Longitude: locationInfo.Longitude
     }
 
